@@ -134,4 +134,11 @@ const Home = () => {
   )
 }
 
+Home.getInitialProps = async (ctx) => {
+  const host = typeof window === 'undefined' ? ctx.req && ctx.req.headers && ctx.req.headers.host : window.location.host
+  return {
+    host
+  }
+}
+
 export default Home
